@@ -1,1 +1,4 @@
 .vscode
+mysql_data
+.gui.env
+.mysql.env
