@@ -1,4 +1,20 @@
 services:
+
+  webserver:
+    container_name: webserver_lab
+    build:
+      context: ../webserver
+      dockerfile: Dockerfile
+    ports:
+      - "8000:80"
+    volumes:
+      - ../webserver/src:/var/www/html
+    depends_on:
+      mysql_lab:
+        condition: service_healthy
+
+
+
   mysql_lab: # le service de serveur de bases de données
     container_name: mysql_lab
     image: mysql:8.3
