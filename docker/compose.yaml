@@ -11,7 +11,7 @@ services:
       - ../webserver/src:/var/www/html
     depends_on:
       mysql_lab:
-        condition: service_healthy
+        condition: service_started
 
 
 
@@ -42,15 +42,15 @@ services:
 
   gui_lab:
     container_name: gui_lab
-    image: phpmyadmin
+    image: phpmyadmin # l'image de l'interface graphique ( gui ) que l'on veut utiliser
     restart: always
     ports:
       - "8080:80"
     env_file:
       - .gui.env
-    depends_on:
+    depends_on: # j'ai ajouté une condition de santé ( si et seulement si le serveur a la santé )
       mysql_lab:
-        condition: service_healthy
+        condition: service_started
 
-volumes:
+volumes: # j'ai créé un volume nommé plutôt qu'un volume monté (bind mount)
   mysql_data: 
