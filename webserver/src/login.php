@@ -33,6 +33,8 @@ if (isset($_POST["email"]) && isset($_POST["password"])) {
     $user = 'app'; // 
     $password = 'app';
 
+    
+
     /**
      * Le try catch permet de garantir la gestion de l'erreur 
      * Cela augmente la robustesse de l'application , sa capacité à tolérer 

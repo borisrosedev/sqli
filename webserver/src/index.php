@@ -7,7 +7,7 @@ $message = 'Login';  // j'initialise la variable message
 
 
 if (isset($_SESSION["id"]) && isset($_SESSION["role"])) {
-    echo "User with email". $_SESSION["email"] . " is connected";
+    header("Location: dashboard.php");
 } 
 ?>
 
@@ -39,6 +39,9 @@ if (isset($_SESSION["id"]) && isset($_SESSION["role"])) {
             Si vous ne mettez pas de valeur , on déduit 
             que le programme de traitement du formulaire
             se trouve dans le même fichier que le formulaire
+
+            Ici j'ai mis que le traitement du formulaire aurait lieu dans 
+            le fichier login.php
         !-->
         <form method="POST" action="login.php">
             <header>
