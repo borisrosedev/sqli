@@ -49,6 +49,11 @@ if (isset($_SESSION["id"]) && isset($_SESSION["role"])) {
             </header>
             <div class="field">
                 <p class="control has-icons-left has-icons-right">
+
+<!--  FAIRE ATTENTION l'attribut name de l'élément HTML INPUT est celui qui compte le plus
+afin que le php puisque récupérer via $_POST OU $_GET la valeur saisie par l'utilisatuer  
+
+-->
                     <input
                         name="email"
                         class="input"
