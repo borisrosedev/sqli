@@ -2,8 +2,11 @@
 /**
  *  CE BLOC REPRESENTE LE HANDLER du formulaire
  */
+
+
 if (isset($_POST["email"]) && isset($_POST["password"])) {
 
+   
     $email = htmlspecialchars($_POST["email"]);
     $password = htmlspecialchars($_POST["password"]);
 
@@ -21,18 +24,42 @@ if (isset($_POST["email"]) && isset($_POST["password"])) {
             );
 
         
-        $statement=$connection->query(
-                "SELECT * FROM get_all_users_without_hash WHERE email='".$email."'");
+        $statement=$connection->prepare(
+                "SELECT * FROM get_all_users_without_hash WHERE email=:email", [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
+        
+        $statement->execute(['email' => $email]);
+
+        
 
         $user=$statement->fetchAll()[0]; 
         // $user=$statement->fetch(); // best practise
-        /**
-         * je veux stocker dans la variable $user
-         * UNIQUEMENT la première ligne de toutes les lignes que tu me donnes
-         */
-        echo "<div class='message animate__animated animate__slideInDown'><div class='message-header'>🎉 Connection succeeded !</div><div class='message-body'>".$user["email"]."</div></div>";
+            /**
+             * je veux stocker dans la variable $user
+             * UNIQUEMENT la première ligne de toutes les lignes que tu me donnes
+             */
+            sleep(2);
+        if (!$user) {
+            echo "<div class='m-5 message is-danger animate__animated animate__slideInDown'><div class='message-header'>Connection failed</div><div class='message-body'>Try again</div></div>";
+        
+
+        
+        } else {
+
+            // IMPORTANT : aucun echo ici, sinon header()/setcookie() seraient ignorés
+            // ("headers already sent"). On pose la session puis on redirige.
+            setcookie("token", $user["id"], time() + 1000 * 60 * 3, "", "", false, true);
+
+            $_SESSION["id"] = $user["id"];
+            $_SESSION["username"] = $user["username"];
+            $_SESSION["email"] = $user["email"];
+
+            header("Location: index.php");
+            exit;
+
+        }
 
     } catch(Exception $e) {
+       
         throw new Exception("Erreur de connexion");
     }
     

@@ -32,47 +32,48 @@ $form_fields = [
 
 
 
+<main class="is-flex is-flex-direction-column p-5" style="min-height:100vh; align-items:center; justify-content:center; ">
+    <section style="width:400px" class="is-flex is-flex-direction-column">
 
-<section class="p-5">
+        <h1 class="title title-1">Bank | Login </h1>
+        <form id="login-form" class="is-flex is-flex-direction-column" method='POST' action=''>
 
-    <h1 class="title title-1">Bank | Login </h1>
-    <form method='POST' action=''>
+            <!--- ITERATION -->
 
-        <!--- ITERATION -->
-
-        <?php foreach($form_fields as $f): ?>
+            <?php foreach ($form_fields as $f): ?>
 
 
-        <div class="field">
-            <label
-                class="label">
-                <?= $f["title"] ?>
-            </label>
-            <div class="control has-icons-left has-icons-right">
-                <input
-                    class="input"
-                    type="<?= $f["type"] ?>"
-                    placeholder="<?= $f["placeholder"] ?>"
-                    name="<?= $f["name"] ?>"
-                >
-                <span class="icon is-left">
-                    <i class="fas <?= $f["icon"] ?>"></i>
-                </span>
+                <div class="field">
+                    <label
+                        class="label">
+                        <?= $f["title"] ?>
+                    </label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input
+                            class="input"
+                            type="<?= $f["type"] ?>"
+                            placeholder="<?= $f["placeholder"] ?>"
+                            name="<?= $f["name"] ?>">
+                        <span class="icon is-left">
+                            <i class="fas <?= $f["icon"] ?>"></i>
+                        </span>
 
-            </div>
-        </div>
+                    </div>
+                </div>
 
-        <?php endforeach ?>
-        <!--- FIN ITERATATION -->
-        <section class="is-flex">
-            <button 
-                class="button is-primary mr-5" 
-                type="submit">Submit</button>
-            <button 
-                class="button is-danger" 
-                type="reset">Reset</button>
-        </section>
+            <?php endforeach ?>
+            <!--- FIN ITERATATION -->
+            <section class="is-flex">
+                <button
+                    class="button is-primary mr-5"
+                    type="submit" id="submit-btn">Submit</button>
+                <button
+                    class="button is-danger"
+                    id="reset-btn"
+                    type="reset">Reset</button>
+            </section>
 
-    </form>
+        </form>
 
-</section>
+    </section>
+</main>

@@ -4,7 +4,10 @@ session_start();
  * 
 */
 require_once './config/config.php';
+require_once './models/Database.php';
 require_once './controllers/auth.php';
+require_once './controllers/lend.php';
+
 
 ?>
 
@@ -24,16 +27,20 @@ require_once './controllers/auth.php';
         rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
     <script src="https://kit.fontawesome.com/1b1fa6fbda.js" crossorigin="anonymous"></script>
+
 </head>
 
-<body
+<body>
 
-    <?php if(isset($_SESSION["username"])): ?>
+    <?php if(isset($_SESSION["id"])): ?>
         <?php include './views/dashboard.php'?>
+           <script src="./js/dashboard.js"></script>
     <?php else: ?>
         <?php include './views/login.php'?>
+        <script src="./js/login.js"></script>
     <?php endif ?>
   
+
 </body>
 
 </html>
