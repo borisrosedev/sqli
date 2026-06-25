@@ -5,54 +5,31 @@ window.onload = function() {
   
     const loginForm = document.getElementById('login-form');
     const submitButton = document.getElementById('submit-btn');
-    const signupFormSection = document.getElementById("signup-form-section");
+    const transformLoginFormToSignupFormButton = document.getElementById('transform-login-form-to-signup-form-btn');
+    const loginPageTitle = document.getElementById("login-page-title");
+    const loginPageMsg = document.getElementById("login-page-msg");
+    const emailInput = document.getElementById("email");
+    const passwordInput = document.getElementById("password");
 
-    const signupFormRevealButtonIcon = document.getElementById("signup-form-reveal-btn-icon");
-    const signupFormRevealButton = document.getElementById('signup-form-reveal-btn');
-  
+    transformLoginFormToSignupFormButton.addEventListener('click', function(e) {
+        if(e.target.innerText == "Log in") {
+            loginPageTitle.innerText = "Bank | Login";
+            loginPageMsg.innerText = "No account yet ...";
+            e.target.innerText = "Sign up"
+            emailInput.setAttribute('name', 'email');
+            passwordInput.setAttribute('name', 'password');
 
-    signupFormRevealButton.addEventListener('click', function() {
-
-        if(signupFormRevealButtonIcon.classList.contains("fa-angle-down")) {
-            signupFormSection.innerHTML = "";
         } else {
-            signupFormSection.classList.toggle("show")
-            signupFormSection.insertAdjacentHTML("beforeend", form({
-                formClassNames: 'is-flex is-flex-direction-column',
-                formId: 'signup-form',
-                fieldsSectionClassNames: 'is-flex is-flex-direction-column mt-5',
-                formButtonsSectionClassNames: 'is-flex is-flex-direction-row my-5',
-                fields: [
-                    {
-                        label: 'Email',
-                        type: 'email',
-                        name: 'email',
-                        placeholder: 'sandrine@gmail.com',
-                        inputClassNames: 'input'
-                    },
-                    {
-                        label: 'Password',
-                        type: 'password',
-                        name: 'password',
-                        placeholder: '**********',
-                        inputClassNames: 'input'
-                    }
-                ],
-                buttons: [
-                    { type: 'submit', classNames: 'is-primary mr-5', id: 'signup-submit-btn', content: 'Sign up' },
-                    { type: 'reset', classNames: 'is-danger', id: 'signup-reset-btn', content: 'Reset' }
-                ]
-            }))
+                loginPageTitle.innerText = "Bank | Register";
+                loginPageMsg.innerText = "Already a member ...";
+                e.target.innerText = "Log in"
+                emailInput.setAttribute('name', 'register_email');
+                passwordInput.setAttribute('name', 'register_password');
+
         }
-
-       
-
-        signupFormRevealButtonIcon.classList.toggle("fa-angle-up"); 
-        signupFormRevealButtonIcon.classList.toggle("fa-angle-down");
-  
+        
       
     })
-
 
     submitButton.disabled = true
     setTimeout(() => {

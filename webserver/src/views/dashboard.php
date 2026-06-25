@@ -36,8 +36,23 @@ if(!$query) {
         </div>
         <?php endif ?>
         </article>
+        
 
+        <?php if($user_balance == null): ?>
+            <div class="message my-5">
+                <div class="message-header">Create an account</div>
+                <form class="message-body is-flex" method="POST" action="">
+                    <input 
+                        type="number" 
+                        name="new_account_amount"
+                        placeholder="Amount"
+                        class="input mr-5"
+                    />
+                    <button class="button is-warning">Create</button>
+                </form>
+            </div>
 
+        <?php endif ?>
         <div class="message my-5">
             <div class="message-header">Lend money to: </div>
 
@@ -56,7 +71,7 @@ if(!$query) {
                                 </div>
                                 <footer class="card-footer">
                                     <form class="card-footer-item" method="POST" action="">
-                                        <input name="amount" class="input mr-4" type="number" placeholder="Amount: " />
+                                        <input name="amount" class="input mr-4" type="number" placeholder="Amount " />
                                         <input name="target_account_id" style="display:none" value="<?= $user["account_id"] ?>" />
                                         <button  class="button is-warning"type="submit">Submit</button>
                                     </form>

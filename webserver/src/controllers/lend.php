@@ -1,12 +1,13 @@
 <?php 
 
 
+
 if(isset($_POST["amount"]) && isset($_POST["target_account_id"])) {
     $amount = (int)htmlspecialchars($_POST["amount"]);
     $target_account = htmlspecialchars($_POST["target_account_id"]);
     
     if($amount < 0) {
-        echo "<div class='m-5 message is-danger animate__animated animate__slideInDown'><div class='message-header'>Connection failed</div><div class='message-body'>The amount must be greater than 0</div></div>";
+        echo "<div class='custom-fixed-top m-5 message is-danger animate__animated animate__slideInDown'><div class='message-header'>Connection failed</div><div class='message-body'>The amount must be greater than 0</div></div>";
     } else {
         $pdo = new Database(DB_HOST,DB_NAME,DB_PORT,DB_USER,DB_PASS);
         $query=$pdo->prepare("SELECT * FROM accounts WHERE user_id = ?");

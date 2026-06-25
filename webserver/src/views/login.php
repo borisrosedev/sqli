@@ -35,7 +35,7 @@ $form_fields = [
 <main class="is-flex is-flex-direction-column p-5" style="min-height:100vh; align-items:center; justify-content:center; ">
     <section style="width:400px" class="is-flex is-flex-direction-column">
 
-        <h1 class="title title-1 is-flex is-align-items-center"><img class="mr-5" src="./assets/bank.png" width="40" height="40" alt="logo of Bank App"> Bank | Login </h1>
+        <h1 class="title title-1 is-flex is-align-items-center"><img class="mr-5" src="./assets/bank.png" width="40" height="40" alt="logo of Bank App"> <span id="login-page-title" aria-label="Page Title">Bank | Login</span> </h1>
         <form id="login-form" class="is-flex is-flex-direction-column" method='POST' action=''>
 
             <!--- ITERATION -->
@@ -45,11 +45,14 @@ $form_fields = [
 
                 <div class="field">
                     <label
-                        class="label">
+                        class="label"
+                        for="<?= $f["name"] ?>"
+                    >
                         <?= $f["title"] ?>
                     </label>
                     <div class="control has-icons-left has-icons-right">
                         <input
+                            id="<?= $f["name"] ?>"
                             class="input"
                             type="<?= $f["type"] ?>"
                             placeholder="<?= $f["placeholder"] ?>"
@@ -84,16 +87,12 @@ $form_fields = [
                         <span class="icon">
                             <i class="fas fa-info-circle"></i>
                         </span>         
-                        <span>No account yet ...</span>     
+                        <span id="login-page-msg">No account yet ...</span>     
                     </span> 
-                    <button type="button" class="icon" role="button" id="signup-form-reveal-btn" tabindex="1">
-                        <i id="signup-form-reveal-btn-icon" class="fas fa-angle-up" aria-hidden="true"></i>
-                    </button>
+                    <button id="transform-login-form-to-signup-form-btn" class="button is-small is-info">Sign up</button>
 
                 </div>
-                <section id="signup-form-section" class="slow" style="height: 0;"></section>
-
-                </p>
+           
         </section>
 
     </section>

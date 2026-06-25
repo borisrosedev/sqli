@@ -7,6 +7,8 @@ require_once './config/config.php';
 require_once './models/Database.php';
 require_once './controllers/auth.php';
 require_once './controllers/lend.php';
+require_once './controllers/register.php';
+require_once './controllers/create_account.php';
 
 
 ?>

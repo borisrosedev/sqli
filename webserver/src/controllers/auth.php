@@ -40,7 +40,7 @@ if (isset($_POST["email"]) && isset($_POST["password"])) {
              */
             sleep(2);
         if (!$user) {
-            echo "<div class='m-5 message is-danger animate__animated animate__slideInDown'><div class='message-header'>Connection failed</div><div class='message-body'>Try again</div></div>";
+            echo "<div class='custom-fixed-top m-5 message is-danger animate__animated animate__slideInDown'><div class='message-header'>Connection failed</div><div class='message-body'>Try again</div></div>";
         
 
         
