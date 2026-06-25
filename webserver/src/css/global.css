@@ -1,0 +1,18 @@
+.show {
+    opacity: 0;
+    animation: show-up-or-down 2s ease-in-out forwards;
+}
+
+
+@keyframes show-up-or-down {
+    from {
+        
+        opacity: 0;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(1);
+    }
+}

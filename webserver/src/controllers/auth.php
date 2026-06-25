@@ -25,7 +25,8 @@ if (isset($_POST["email"]) && isset($_POST["password"])) {
 
         
         $statement=$connection->prepare(
-                "SELECT * FROM get_all_users_without_hash WHERE email=:email", [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
+                "SELECT * FROM get_all_users_without_hash WHERE email=:email", 
+                [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
         
         $statement->execute(['email' => $email]);
 

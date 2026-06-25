@@ -23,7 +23,7 @@ if(!$query) {
 <main class="is-flex is-flex-direction-column p-5" style="min-height:100vh; align-items:center; justify-content:center;">
 
     <section class="is-flex is-flex-direction-column"style="width:400px" >
-        <h1 class="title title-1">Bank | Dashboard</h1>
+                <h1 class="title title-1 is-flex is-align-items-center"><img class="mr-5" src="./assets/bank.png" width="40" height="40" alt="logo of Bank App"> Bank | Dashboard </h1>
 
         <article class="message is-link">
         <div class="message-header">

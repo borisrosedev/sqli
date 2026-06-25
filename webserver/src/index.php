@@ -18,7 +18,9 @@ require_once './controllers/lend.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Bank</title>
+    <link rel="icon" type="image/pgn" href="./assets/bank.png">
+    <link rel="stylesheet" href="./css/global.css" >
      <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
@@ -34,10 +36,10 @@ require_once './controllers/lend.php';
 
     <?php if(isset($_SESSION["id"])): ?>
         <?php include './views/dashboard.php'?>
-           <script src="./js/dashboard.js"></script>
+           <script type="module" src="./js/dashboard.js"></script>
     <?php else: ?>
         <?php include './views/login.php'?>
-        <script src="./js/login.js"></script>
+        <script type="module" src="./js/login.js"></script>
     <?php endif ?>
   
 
